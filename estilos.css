@@ -1,0 +1,229 @@
+/* Variables para mantener la consistencia de los colores */
+:root {
+    --color-principal: #000000;
+    --color-secundario: #f0f0f0;
+    --color-acento: #b8860b; /* Dorado */
+    --fuente-principal: 'Georgia', serif;
+    --fuente-secundaria: 'Helvetica Neue', sans-serif;
+}
+
+/* Estilos generales y Encabezado (Sin cambios) */
+body {
+    font-family: var(--fuente-secundaria);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-principal);
+    color: var(--color-secundario);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--color-acento);
+}
+
+header h1 {
+    font-family: var(--fuente-principal);
+    font-size: 3em;
+    letter-spacing: 5px;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(184, 134, 11, 0.5);
+}
+
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-acento);
+    background-color: #555;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.producto-categoria {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.producto-categoria h2 {
+    color: var(--color-principal);
+    border-bottom: 3px solid var(--color-acento);
+    padding-bottom: 10px;
+    font-family: var(--fuente-principal);
+    margin-bottom: 20px;
+}
+
+/* Contenedor de la lista de artículos (Grid Layout) - SIN CAMBIOS */
+.articulo-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Tarjeta individual del artículo (Para la sección de productos) - SIN CAMBIOS */
+.tarjeta-articulo {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.tarjeta-articulo:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.tarjeta-articulo h3 {
+    font-size: 1.4em;
+    color: var(--color-principal);
+    margin-top: 0;
+}
+
+.precio {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--color-acento);
+    margin: 10px 0;
+}
+
+.tallas {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Botón "Añadir al Carrito" (Para la sección de productos) - SIN CAMBIOS */
+.tarjeta-articulo button {
+    background-color: var(--color-principal);
+    color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.tarjeta-articulo button:hover {
+    background-color: var(--color-acento);
+    color: var(--color-principal);
+}
+
+
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN DEL CARRITO --- */
+
+#carrito {
+    display: flex;
+    flex-direction: column;
+}
+
+#articulos-carrito {
+    flex-grow: 1; /* Ocupa el espacio principal */
+    min-height: 100px;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#resumen-carrito {
+    background-color: var(--color-secundario);
+    padding: 20px;
+    border: 2px solid var(--color-acento);
+    border-radius: 5px;
+    text-align: right;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#resumen-carrito h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+#resumen-carrito p {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#boton-checkout {
+    background-color: var(--color-acento);
+    color: var(--color-principal);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#boton-checkout:hover {
+    background-color: #ffd700; /* Oro más claro al pasar el mouse */
+}
+
+/* Estilo para los artículos dentro del carrito */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dotted #e0e0e0;
+}
+
+.item-carrito:last-child {
+    border-bottom: none;
+}
+
+.item-carrito span {
+    font-weight: 500;
+}
+
+/* Pie de página (Sin cambios) */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-principal);
+    color: var(--color-acento);
+    font-size: 0.9em;
+    border-top: 5px solid var(--color-acento);
+}
